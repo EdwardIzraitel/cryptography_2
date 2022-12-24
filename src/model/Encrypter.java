@@ -20,6 +20,7 @@ public class Encrypter extends CeaserCipher {
         try (BufferedReader br = Files.newBufferedReader(path); BufferedWriter bw = Files.newBufferedWriter(Path.of(pathName))) {
             int characterValue;
             char character;
+            //
             while ((characterValue = br.read()) != -1) {
                 character = (char) characterValue;
                 if (!CHARACTERS.contains(String.valueOf(Character.toUpperCase(character)))) {
