@@ -1,10 +1,12 @@
-package controller;
+package model;
 
 import java.nio.file.Path;
 
 abstract public class CeaserCipher {
-    private Path path;
-    private int key;
+    Path path;
+    int key;
+
+    static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public CeaserCipher(Path path, int key) {
         this.path = path;

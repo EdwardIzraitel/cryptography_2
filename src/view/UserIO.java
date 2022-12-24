@@ -1,4 +1,4 @@
-package userio;
+package view;
 
 import exceptions.NotAFileException;
 import exceptions.OutOfBoundsException;
