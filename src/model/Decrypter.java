@@ -17,9 +17,11 @@ public class Decrypter extends CeaserCipher {
     }
 
     public void bruteForce() {
-        //I want to check every key from 0-25
-        //I want to check that from every key the file entire file has actual words
-        // every is an actual word
+        //I want to check keys up until i find the correct key and i want to stop
+        //a correct key is found by starting from 0 and moving up
+        //and seeing if there is a percentage match to actual words
+        //percentage match to actual words -> 2 lines or 1 line
+        //and not the whole file
 
     }
 
