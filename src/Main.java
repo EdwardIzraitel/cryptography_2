@@ -8,18 +8,20 @@ public class Main {
     public static void main(String[] args) {
         UserIO.out("Welcome to our Decrypter/Encrypter\n" +
                 "Follow the menu options to continue");
-        UserIO.out("Press 1. For Encryption/Decryption");
-        UserIO.out("Press 2. For Cryptanalysis");
-        int selection = UserIO.readInt("Input a whole number between 1 and 2", 1, 2);
+        while (true) {
+            UserIO.out("Press 1. For Encryption/Decryption");
+            UserIO.out("Press 2. For Cryptanalysis");
+            int selection = UserIO.readInt("Input a whole number between 1 and 2", 1, 2);
 
-        switch (selection) {
-            case 1:
-                //do something
-                encrpytOrDecrpyt();
-                break;
-            case 2:
-                cryptanalysis();
-                break;
+            switch (selection) {
+                case 1:
+                    //do something
+                    encrpytOrDecrpyt();
+                    break;
+                case 2:
+                    cryptanalysis();
+                    break;
+            }
         }
     }
 
@@ -55,7 +57,8 @@ public class Main {
         switch (selection) {
             case 1:
                 //Brute force
-                decrypter.bruteForce();
+                int keyUsed = decrypter.bruteForce();
+                UserIO.out("The key used to decrypt the file was " + keyUsed);
                 break;
             case 2:
                 //statistical Analysis
