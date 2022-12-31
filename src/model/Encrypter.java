@@ -13,6 +13,6 @@ public class Encrypter extends CeaserCipher {
     }
 
     public void encrypt() {
-        encrypterDecrypterFiles(true);
+        writeIntoFile(true);
     }
 }
