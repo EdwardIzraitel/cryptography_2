@@ -12,6 +12,12 @@ abstract public class CeaserCipher {
     int key;
 
     static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//    wsayter
+
+    //to
+    //at
+    //19
+    //chapter
 
     public CeaserCipher(Path path, int key) {
         this.path = path;
@@ -25,8 +31,8 @@ abstract public class CeaserCipher {
         return pathName.substring(0, lastIndex) + endFileName + pathName.substring(lastIndex);
     }
 
-    void writeIntoFile(boolean encrypt) {
-        StringBuilder decryptedText = createStringBuilderFromFile(encrypt, -1);
+    void writeIntoFile(Path path, boolean encrypt) {
+        StringBuilder decryptedText = createStringBuilderFromFile(path, encrypt, -1);
         try (BufferedWriter bw = Files.newBufferedWriter(Path.of(resultPathName(encrypt)))) {
             bw.append(decryptedText);
         } catch (IOException e) {
@@ -34,7 +40,7 @@ abstract public class CeaserCipher {
         }
     }
 
-    StringBuilder createStringBuilderFromFile(boolean encrypt, int limit) {
+    StringBuilder createStringBuilderFromFile(Path path, boolean encrypt, int limit) {
         StringBuilder sb = new StringBuilder();
         try (BufferedReader br = Files.newBufferedReader(path)) {
             int characterValue;

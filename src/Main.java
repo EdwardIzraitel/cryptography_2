@@ -63,7 +63,8 @@ public class Main {
             case 2:
                 //statistical Analysis
                 Path encryptedFile = UserIO.getPath("Please enter a decrypted file that you want to compare to");
-                decrypter.statisticalAnalysis(encryptedFile);
+                keyUsed = decrypter.statisticalAnalysis(encryptedFile);
+                UserIO.out("The key used to decrypt the file was " + keyUsed);
                 break;
         }
     }
