@@ -33,13 +33,13 @@ public class Decrypter extends CeaserCipher {
     }
 
     public boolean isCorrectlyDecrypted(StringBuilder sb) {
-        String[] decryptedWords = sb.toString().split(" ");
+        String[] decryptedWords = sb.toString().toLowerCase().split("\\W+");
         int correctWords = 0;
         for (String word : decryptedWords) {
-            if (!allowedWords.contains(word.toLowerCase())) continue;
+            if (!allowedWords.contains(word)) continue;
             correctWords++;
         }
-        if (((float) correctWords / (float) decryptedWords.length) * 100f > 30f) {
+        if (((float) correctWords / (float) decryptedWords.length) * 100f > 60f) {
             return true;
         }
         return false;
@@ -90,16 +90,13 @@ public class Decrypter extends CeaserCipher {
             float range = (deMap.get(dKey) / 100f) * 5f;
             for (String eKey : enMap.keySet()) {
                 if (dKey.equals(eKey)) continue;
-                //0.08 + 0.016 < 0.96 and 0.08-0.016 > 0.064
                 if (((deMap.get(dKey) + range) > enMap.get(eKey)) && ((deMap.get(dKey) - range) < enMap.get(eKey))) {
-
                     key = Math.abs(CHARACTERS.indexOf(dKey) - CHARACTERS.indexOf(eKey));
                     StringBuilder attemptSB = createStringBuilderFromFile(path, false, -1);
                     if (!isCorrectlyDecrypted(attemptSB)) continue;
                     writeIntoFile(path, false);
                     return key;
                 }
-
             }
         }
         return -1;

@@ -58,12 +58,25 @@ public class Main {
             case 1:
                 //Brute force
                 int keyUsed = decrypter.bruteForce();
-                UserIO.out("The key used to decrypt the file was " + keyUsed);
+                switch (keyUsed) {
+                    case -1:
+                        UserIO.out("Could not find the key used to decrypt");
+                        break;
+                    default:
+                        UserIO.out("The key used to decrypt the file was " + keyUsed);
+                }
                 break;
             case 2:
                 //statistical Analysis
                 Path encryptedFile = UserIO.getPath("Please enter a decrypted file that you want to compare to");
                 keyUsed = decrypter.statisticalAnalysis(encryptedFile);
+                switch (keyUsed) {
+                    case -1:
+                        UserIO.out("Could not find the key used to decrypt");
+                        break;
+                    default:
+                        UserIO.out("The key used to decrypt the file was " + keyUsed);
+                }
                 UserIO.out("The key used to decrypt the file was " + keyUsed);
                 break;
         }

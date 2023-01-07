@@ -3,7 +3,6 @@ package model;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -12,12 +11,6 @@ abstract public class CeaserCipher {
     int key;
 
     static final String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//    wsayter
-
-    //to
-    //at
-    //19
-    //chapter
 
     public CeaserCipher(Path path, int key) {
         this.path = path;
